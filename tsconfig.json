@@ -16,15 +16,5 @@
     "typeRoots": [
       "./node_modules/@types"
     ]
-  },
-  "include": [
-    "./index.ts",
-    "./socket-io.module.ts",
-    "./socket-io.service.ts"
-  ],
-  "files": [
-    "./index.ts",
-    "./socket-io.module.ts",
-    "./socket-io.service.ts"
-  ]
+  }
 }

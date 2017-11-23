@@ -8,7 +8,7 @@ var server, io;
 
 beforeEach(function(){
   server = http.createServer();
-  
+
   io = require('socket.io')(server);
   io.on('connection', function(socket){
       socket.emit('event',"someData");
@@ -21,7 +21,7 @@ beforeEach(function(){
   });
   server.listen(3000);
   enableDestroy(server);
-  
+
 });
 
 afterEach(function(){
@@ -36,14 +36,14 @@ var socketURL = 'http://localhost:3000';
 
 describe("fromEvent",function(){
   it('should be equal', (done) => {
-    
+
     let socket = new IOSocket({url: socketURL});
     socket.fromEvent("event").subscribe((data)=>{
-      expect(data).toEqual("someData"); 
+      expect(data).toEqual("someData");
       done();
     });
-  
-  }); 
+
+  });
 })
 
 describe("unsubcribe from Event",function(){
@@ -54,51 +54,51 @@ describe("unsubcribe from Event",function(){
       expect(data).toEqual("someData");
       socket.on("thirdEvent",unsubcribeCallBack);
     }).unsubscribe();
-    
+
     setTimeout(function(){
       expect(unsubcribeCallBack).not.toHaveBeenCalled();
       done();
     },200);
-    
-  }); 
+
+  });
 })
 
- 
+
 
 
 describe("on",function(){
   it('should be equal', (done) => {
-    
+
     let socket = new IOSocket({url: socketURL});
     socket.on("event",(data) => {
       expect(data).toEqual("someData");
       done();
     });
-  
-  }); 
+
+  });
 })
 
 
 describe("once",function(){
   it('should be equal', (done) => {
-    
+
     let socket = new IOSocket({url: socketURL});
     let count = 0;
     socket.once("event",(data) => {
       expect(data).toEqual("someData");
       count++;
     });
-    
+
     setTimeout(function(){
       expect(count).toEqual(1);
       done();
     },200)
-  }); 
+  });
 })
 
 describe("emit",function(){
   it('should be equal', (done) => {
-    
+
     let socket = new IOSocket({url: socketURL});
     let count = 0;
     socket.emit('otherEvent');
@@ -106,7 +106,7 @@ describe("emit",function(){
       expect(data).toEqual("Msg Received");
       done();
     });
-  }); 
+  });
 })
 
 
@@ -121,7 +121,7 @@ describe("should remove the listener",function(){
       expect(removeListenerCallBack).not.toHaveBeenCalled();
       done();
     },200);
-  }); 
+  });
 })
 
 describe("removeAllListeners",function(){
@@ -132,12 +132,12 @@ describe("removeAllListeners",function(){
     socket.on("event",removeAllListenersCallBack);
     socket.on("secondEvent",removeAllListenersCallBack);
     socket.removeAllListeners();
-    
+
     setTimeout(function(){
       expect(removeAllListenersCallBack).not.toHaveBeenCalled();
       done();
     },200);
-  }); 
+  });
 })
 
 
@@ -152,6 +152,6 @@ describe("disconnect",function(){
       expect(disconnectCallBack).not.toHaveBeenCalled();
       done();
     },200);
-  }); 
+  });
 })
 
