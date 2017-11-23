@@ -1,6 +1,6 @@
 import { Injectable, EventEmitter, Inject } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
-import 'rxjs/add/operator/share'; 
+import 'rxjs/add/operator/share';
 
 import * as io from 'socket.io-client';
 
@@ -58,7 +58,7 @@ export class WrappedSocket {
             };
         }).share();
     }
-   
+
     /* Creates a Promise for a one-time event */
     fromEventOnce<T>(eventName: string): Promise<T> {
         return new Promise<T>(resolve => this.once(eventName, resolve));
