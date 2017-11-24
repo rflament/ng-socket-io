@@ -17,7 +17,7 @@ var Observable_1 = require("rxjs/Observable");
 require("rxjs/add/operator/share");
 var io = require("socket.io-client");
 var socket_io_module_1 = require("./socket-io.module");
-var WrappedSocket = (function () {
+var WrappedSocket = /** @class */ (function () {
     function WrappedSocket(config) {
         this.subscribersCounter = 0;
         var url = config.url || '';

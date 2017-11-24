@@ -14,7 +14,7 @@ function SocketFactory(config) {
 }
 exports.SocketFactory = SocketFactory;
 exports.SOCKET_CONFIG_TOKEN = new core_1.InjectionToken('__SOCKET_IO_CONFIG__');
-var SocketIoModule = (function () {
+var SocketIoModule = /** @class */ (function () {
     function SocketIoModule() {
     }
     SocketIoModule_1 = SocketIoModule;

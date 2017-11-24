@@ -16,5 +16,14 @@
     "typeRoots": [
       "./node_modules/@types"
     ]
-  }
+  },
+  "files": [
+    "ng-socket-io.ts",
+    "src/socket-io.module.ts",
+    "src/socket-io.service.ts",
+    "src/socketIoConfig.ts"
+  ],
+  "exclude": [
+    "node_modules"
+  ]
 }
